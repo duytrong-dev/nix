@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { createHotel, deleteMultipleHotels, getAllHotels } from "~/controllers/hotel.controller.js";
+import { createHotel, deleteHotel, deleteMultipleHotels, getAllHotels } from "~/controllers/hotel.controller.js";
 
-const hotelRouter = Router();
+const hotelRouter: Router = Router();
 
 // Lấy danh sách tất cả hotel
 hotelRouter.get('/', getAllHotels);

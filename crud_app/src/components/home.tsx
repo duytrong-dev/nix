@@ -132,7 +132,7 @@ export default function Home() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/api/v1/multiple", {
+      const response = await fetch("http://localhost:8080/api/v1/hotels/multiple", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

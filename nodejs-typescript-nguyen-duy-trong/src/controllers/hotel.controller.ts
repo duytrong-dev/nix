@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import e, { Request, Response } from "express";
 import { Hotel } from "~/models/hotel.model.js";
 import { Payment } from "~/models/payment.model.js";
 
@@ -59,11 +59,11 @@ export const deleteHotel = async (req: Request, res: Response) => {
     }
 }
 
-export const deleteMultipleHotels = async (req: Request, res: Response) => {
+export const deleteMultipleHotels = async (req: Request, res: Response)=> {
   try {
       const ids: number[] = req.body.ids;
       if (!Array.isArray(ids) || ids.length === 0) {
-          return res.status(400).json({ message: 'Invalid or empty IDs array' });
+          res.status(400).json({ message: 'Invalid or empty IDs array' });
       }
 
       const deletedCount = await Hotel.destroy({
@@ -73,12 +73,12 @@ export const deleteMultipleHotels = async (req: Request, res: Response) => {
       });
 
       if (deletedCount === 0) {
-          return res.status(404).json({ message: 'No hotels found to delete' });
+          res.status(404).json({ message: 'No hotels found to delete' });
       }
 
-      return res.status(200).json({ message: `${deletedCount} hotels deleted successfully` });
+      res.status(200).json({ message: `${deletedCount} hotels deleted successfully` });
   } catch (error) {
       console.error('Error deleting multiple hotels:', error);
-      return res.status(500).json({ message: 'Internal server error', error: error instanceof Error ? error.message : 'Unknown error' });
+      res.status(500).json({ message: 'Internal server error', error: error instanceof Error ? error.message : 'Unknown error' });
   }
 };

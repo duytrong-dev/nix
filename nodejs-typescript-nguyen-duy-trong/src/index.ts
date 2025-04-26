@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { connectDB } from './configs/database.js';
-import cors from 'cors';
+import cors from 'cors'
 
 // config biến môi trường
 dotenv.config();
