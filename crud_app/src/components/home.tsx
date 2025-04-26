@@ -51,7 +51,7 @@ export default function Home() {
     };
 
     fetchRooms();
-  }, []);
+  }, [rooms]);
 
   const handleCreateRoom = async () => {
     // Kiểm tra tên khách hàng
